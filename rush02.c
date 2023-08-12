@@ -13,7 +13,7 @@ void rush(int x, int y) {
     while (i <= y) {
         int j = 1;
         while (j <= x) {
-			// printf("i=%d, j=%d", i, j);
+			printf("i=%d, j=%d, \n", i, j);
 			// 4つ端を表すif文。これを元にほかの問題も考えていく
             // if ((i == 1 && j == 1) || (i == 1 && j == x) || (i == y && j == 1) || (i == y && j == x))
 			 if ((i == 1 && j == 1) || (i == 1 && j == x)){
@@ -33,7 +33,7 @@ void rush(int x, int y) {
 }
 
 int main() {
-    // rush(5, 3);
+    rush(5, 3);
     // rush(4, 4);
     // rush(1, 1);
     // rush(1, 5);
