@@ -6,47 +6,50 @@
 /*   By: luebina <luebina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:07:06 by luebina           #+#    #+#             */
-/*   Updated: 2023/08/13 15:46:52 by luebina          ###   ########.fr       */
+/*   Updated: 2023/08/13 19:35:33 by luebina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//index使わない方がすっきりする、わかりにくい？
+//配列の中身確認して終端までループ
+//文字列の数字を数値に変換
+//char分アドレスプラス=次の文字
+//正負判別　-なら表示してIndex進める? 負の値いれたなら弾いていいのでは？
+//xが格納された配列の先頭(+char分)アドレスを渡す
+//xが格納された配列の先頭アドレスを渡す
+//yが格納された配列の先頭アドレスを渡す
+
 #include <unistd.h>
-#include <stdio.h>
 
 void	rush(int x, int y);
 
-int convert_to_int(const char *str, int *index) {
+int convert_to_int(const char *str) {
     int result = 0;
 
-    while (str[*index] != '\0' && str[*index] >= '0' && str[*index] <= '9') {
-		printf("indexの値:%d\n",*index);
-        result = result * 10 + (str[*index] - '0');
-        (*index)++;
+	while (*str != '\0' && *str >= '0' && *str <= '9')
+	{
+        result = result * 10 + (*str - '0');
+        str++;
     }
-
     return result;
 }
 
 int	custom_atoi(const char *str)
 {
 	int	result;
-	int	sign;
 	int	i;
 
 	result = 0;
-	sign = 1;
 	i = 0;
-	if (str[0] == '-')
+	if (*str != '-')
 	{
-		sign = -1;
-		i++;
+		if (*str == '+')
+		{
+		str++;
+		}
+		result = convert_to_int(str);
 	}
-	else if (str[0] == '+')
-	{
-		i++;
-	}
-	result = convert_to_int(str, &i);
-	return (result * sign);
+	return (result);
 }
 
 int	main(int argc, char const *argv[])
