@@ -6,7 +6,7 @@
 /*   By: luebina <luebina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:07:06 by luebina           #+#    #+#             */
-/*   Updated: 2023/08/13 20:45:06 by luebina          ###   ########.fr       */
+/*   Updated: 2023/08/13 20:56:09 by luebina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	convert_to_int(const char *str)
 	result = 0;
 	while (*str != '\0')
 	{
-		if (*str <= '0' || *str > '9')
+		if (*str < '0' || *str > '9')
 		{
 			return (0);
 		}
