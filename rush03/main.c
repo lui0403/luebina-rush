@@ -6,13 +6,24 @@
 /*   By: luebina <luebina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:07:06 by luebina           #+#    #+#             */
-/*   Updated: 2023/08/13 12:32:44 by luebina          ###   ########.fr       */
+/*   Updated: 2023/08/13 12:35:52 by luebina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 void	rush(int x, int y);
+
+int convert_to_int(const char *str, int *index) {
+    int result = 0;
+
+    while (str[*index] != '\0' && str[*index] >= '0' && str[*index] <= '9') {
+        result = result * 10 + (str[*index] - '0');
+        (*index)++;
+    }
+
+    return result;
+}
 
 int	custom_atoi(const char *str)
 {
@@ -32,18 +43,7 @@ int	custom_atoi(const char *str)
 	{
 		i++;
 	}
-	while (str[i] != '\0')
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + (str[i] - '0');
-			i++;
-		}
-		else
-		{
-			break ;
-		}
-	}
+	result = convert_to_int(str, &i);
 	return (result * sign);
 }
 
