@@ -6,7 +6,7 @@
 /*   By: luebina <luebina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:07:06 by luebina           #+#    #+#             */
-/*   Updated: 2023/08/13 19:35:33 by luebina          ###   ########.fr       */
+/*   Updated: 2023/08/13 19:46:46 by luebina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@
 
 void	rush(int x, int y);
 
-int convert_to_int(const char *str) {
-    int result = 0;
+int convert_to_int(const char *str)
+{
+    int result;
 
 	while (*str != '\0' && *str >= '0' && *str <= '9')
 	{
         result = result * 10 + (*str - '0');
         str++;
-    }
-    return result;
+	}
+	return (result);
 }
 
 int	custom_atoi(const char *str)

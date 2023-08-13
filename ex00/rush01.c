@@ -6,7 +6,7 @@
 /*   By: luebina <luebina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:24:18 by rhashizu          #+#    #+#             */
-/*   Updated: 2023/08/12 19:38:49 by luebina          ###   ########.fr       */
+/*   Updated: 2023/08/13 19:47:37 by luebina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,21 @@ void	rush(int x, int y)
 {
 	int	count_y;
 
-	if (x > 0 || y > 0)
+	count_y = 1;
+	while (count_y <= y)
 	{
-		count_y = 1;
-		while (count_y <= y)
+		if (count_y == 1)
 		{
-			if (count_y == 1)
-			{
-				print_rush(x, '/', '*', '\\');
-			}
-			else if (count_y == y)
-			{
-				print_rush(x, '\\', '*', '/');
-			}
-			else
-			{
-				print_rush(x, '*', ' ', '*');
-			}
-			count_y++;
+			print_rush(x, '/', '*', '\\');
 		}
+		else if (count_y == y)
+		{
+			print_rush(x, '\\', '*', '/');
+		}
+		else
+		{
+			print_rush(x, '*', ' ', '*');
+		}
+		count_y++;
 	}
 }
