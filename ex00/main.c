@@ -6,7 +6,7 @@
 /*   By: luebina <luebina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:07:06 by luebina           #+#    #+#             */
-/*   Updated: 2023/08/13 20:14:01 by luebina          ###   ########.fr       */
+/*   Updated: 2023/08/13 20:45:06 by luebina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,19 @@
 
 void	rush(int x, int y);
 
-int convert_to_int(const char *str)
+int	convert_to_int(const char *str)
 {
-    int result;
+	int	result;
 
+	result = 0;
 	while (*str != '\0')
 	{
-		if (*str >= '0' && *str <= '9')
+		if (*str <= '0' || *str > '9')
 		{
 			return (0);
 		}
-        result = result * 10 + (*str - '0');
-        str++;
+		result = result * 10 + (*str - '0');
+		str++;
 	}
 	return (result);
 }
@@ -68,6 +69,10 @@ int	main(int argc, char const *argv[])
 	}
 	x = custom_atoi(argv[1]);
 	y = custom_atoi(argv[2]);
+	if (x == 0 || y == 0)
+	{
+		return (0);
+	}
 	rush(x, y);
 	return (0);
 }
